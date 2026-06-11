@@ -21,6 +21,7 @@ public class ModCreativeModeTabs
                     .displayItems((itemDisplayParameters, output) ->
                                   {
                                       output.accept(ModBlocks.CHALK);
+                                      output.accept(ModBlocks.CHALK_BRICKS);
                                   })
                     .build());
 
