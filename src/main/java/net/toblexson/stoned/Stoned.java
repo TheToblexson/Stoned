@@ -1,6 +1,5 @@
 package net.toblexson.stoned;
 
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -13,8 +12,9 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.toblexson.block.ModBlocks;
-import net.toblexson.item.ModItems;
+import net.toblexson.registers.ModBlocks;
+import net.toblexson.registers.ModCreativeModeTabs;
+import net.toblexson.registers.ModItems;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Stoned.MODID)
@@ -37,6 +37,8 @@ public class Stoned
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -54,14 +56,6 @@ public class Stoned
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
-        {
-            event.accept(ModItems.TEST);
-        }
-        else if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS || event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS)
-        {
-            event.accept(ModBlocks.CHALK);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
