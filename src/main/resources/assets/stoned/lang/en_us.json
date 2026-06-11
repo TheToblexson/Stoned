@@ -1,5 +1,5 @@
 {
-  "itemGroup.stoned": "Example Mod Tab",
-  "block.stoned.example_block": "Example Block",
-  "item.stoned.example_item": "Example Item"
+  "item.stoned.test": "Test Item",
+
+  "block.stoned.chalk": "Chalk"
 }
