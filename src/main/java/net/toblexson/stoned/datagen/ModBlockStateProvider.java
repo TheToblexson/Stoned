@@ -24,6 +24,7 @@ public class ModBlockStateProvider extends BlockStateProvider
     @Override
     protected void registerStatesAndModels()
     {
+        //Chalk
         block(ModBlocks.CHALK);
         stairsBlock(ModBlocks.CHALK_STAIRS, ModBlocks.CHALK);
         slabBlock(ModBlocks.CHALK_SLAB, ModBlocks.CHALK);
@@ -33,6 +34,17 @@ public class ModBlockStateProvider extends BlockStateProvider
         stairsBlock(ModBlocks.CHALK_BRICKS_STAIRS, ModBlocks.CHALK_BRICKS);
         slabBlock(ModBlocks.CHALK_BRICKS_SLAB, ModBlocks.CHALK_BRICKS);
         wallBlock(ModBlocks.CHALK_BRICKS_WALL, ModBlocks.CHALK_BRICKS);
+        
+        //Limestone
+        block(ModBlocks.LIMESTONE);
+        stairsBlock(ModBlocks.LIMESTONE_STAIRS, ModBlocks.LIMESTONE);
+        slabBlock(ModBlocks.LIMESTONE_SLAB, ModBlocks.LIMESTONE);
+        wallBlock(ModBlocks.LIMESTONE_WALL, ModBlocks.LIMESTONE);
+
+        block(ModBlocks.LIMESTONE_BRICKS);
+        stairsBlock(ModBlocks.LIMESTONE_BRICKS_STAIRS, ModBlocks.LIMESTONE_BRICKS);
+        slabBlock(ModBlocks.LIMESTONE_BRICKS_SLAB, ModBlocks.LIMESTONE_BRICKS);
+        wallBlock(ModBlocks.LIMESTONE_BRICKS_WALL, ModBlocks.LIMESTONE_BRICKS);
     }
 
     private void slabBlock(DeferredBlock<SlabBlock> slabDefBlock, DeferredBlock<Block> sourceDefBlock)

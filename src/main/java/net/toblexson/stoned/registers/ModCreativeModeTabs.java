@@ -20,6 +20,7 @@ public class ModCreativeModeTabs
                     .title(Component.translatable("creativetab.stoned.stoned_tab"))
                     .displayItems((itemDisplayParameters, output) ->
                                   {
+                                      //Chalk
                                       output.accept(ModBlocks.CHALK);
                                       output.accept(ModBlocks.CHALK_STAIRS);
                                       output.accept(ModBlocks.CHALK_SLAB);
@@ -29,6 +30,17 @@ public class ModCreativeModeTabs
                                       output.accept(ModBlocks.CHALK_BRICKS_STAIRS);
                                       output.accept(ModBlocks.CHALK_BRICKS_SLAB);
                                       output.accept(ModBlocks.CHALK_BRICKS_WALL);
+
+                                      //Limestone
+                                      output.accept(ModBlocks.LIMESTONE);
+                                      output.accept(ModBlocks.LIMESTONE_STAIRS);
+                                      output.accept(ModBlocks.LIMESTONE_SLAB);
+                                      output.accept(ModBlocks.LIMESTONE_WALL);
+
+                                      output.accept(ModBlocks.LIMESTONE_BRICKS);
+                                      output.accept(ModBlocks.LIMESTONE_BRICKS_STAIRS);
+                                      output.accept(ModBlocks.LIMESTONE_BRICKS_SLAB);
+                                      output.accept(ModBlocks.LIMESTONE_BRICKS_WALL);
                                   })
                     .build());
 

@@ -33,11 +33,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         slab(ModBlocks.CHALK_SLAB, ModBlocks.CHALK, output);
         wall(ModBlocks.CHALK_WALL, ModBlocks.CHALK, output);
 
-        //Chalk Bricks
         bricks(ModBlocks.CHALK_BRICKS, ModBlocks.CHALK, output);
         stairs(ModBlocks.CHALK_BRICKS_STAIRS, ModBlocks.CHALK_BRICKS, output);
         slab(ModBlocks.CHALK_BRICKS_SLAB, ModBlocks.CHALK_BRICKS, output);
         wall(ModBlocks.CHALK_BRICKS_WALL, ModBlocks.CHALK_BRICKS, output);
+        
+        //Limestone
+        stairs(ModBlocks.LIMESTONE_STAIRS, ModBlocks.LIMESTONE, output);
+        slab(ModBlocks.LIMESTONE_SLAB, ModBlocks.LIMESTONE, output);
+        wall(ModBlocks.LIMESTONE_WALL, ModBlocks.LIMESTONE, output);
+
+        bricks(ModBlocks.LIMESTONE_BRICKS, ModBlocks.LIMESTONE, output);
+        stairs(ModBlocks.LIMESTONE_BRICKS_STAIRS, ModBlocks.LIMESTONE_BRICKS, output);
+        slab(ModBlocks.LIMESTONE_BRICKS_SLAB, ModBlocks.LIMESTONE_BRICKS, output);
+        wall(ModBlocks.LIMESTONE_BRICKS_WALL, ModBlocks.LIMESTONE_BRICKS, output);
     }
 
     private static void wall(DeferredBlock<WallBlock> wall, DeferredBlock<Block> ingredient, RecipeOutput output)

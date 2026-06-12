@@ -22,6 +22,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider
     @Override
     protected void generate()
     {
+        //Chalk
         dropSelf(ModBlocks.CHALK);
         dropSelf(ModBlocks.CHALK_STAIRS);
         dropSlab(ModBlocks.CHALK_SLAB);
@@ -31,6 +32,17 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider
         dropSelf(ModBlocks.CHALK_BRICKS_STAIRS);
         dropSlab(ModBlocks.CHALK_BRICKS_SLAB);
         dropSelf(ModBlocks.CHALK_BRICKS_WALL);
+        
+        //Limestone
+        dropSelf(ModBlocks.LIMESTONE);
+        dropSelf(ModBlocks.LIMESTONE_STAIRS);
+        dropSlab(ModBlocks.LIMESTONE_SLAB);
+        dropSelf(ModBlocks.LIMESTONE_WALL);
+
+        dropSelf(ModBlocks.LIMESTONE_BRICKS);
+        dropSelf(ModBlocks.LIMESTONE_BRICKS_STAIRS);
+        dropSlab(ModBlocks.LIMESTONE_BRICKS_SLAB);
+        dropSelf(ModBlocks.LIMESTONE_BRICKS_WALL);
     }
 
     public void dropSlab(DeferredBlock<SlabBlock> deferredBlock)

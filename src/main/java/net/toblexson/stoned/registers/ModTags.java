@@ -12,8 +12,6 @@ public class ModTags
 {
     public static class Blocks
     {
-        public static final TagKey<Block> CHALK_BLOCK = createTag("chalk_block");
-
         private static TagKey<Block> createTag(String name)
         {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Stoned.MODID, name));

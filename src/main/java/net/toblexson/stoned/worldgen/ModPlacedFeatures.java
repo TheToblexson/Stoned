@@ -23,6 +23,8 @@ public class ModPlacedFeatures
 
     public static final ResourceKey<PlacedFeature> CHALK_UPPER = registerKey("chalk_upper");
     public static final ResourceKey<PlacedFeature> CHALK_LOWER = registerKey("chalk_lower");
+    public static final ResourceKey<PlacedFeature> LIMESTONE_UPPER = registerKey("limestone_upper");
+    public static final ResourceKey<PlacedFeature> LIMESTONE_LOWER = registerKey("limestone_lower");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context)
     {
@@ -31,6 +33,11 @@ public class ModPlacedFeatures
         register(context, CHALK_UPPER, configuredFeatures.getOrThrow(ModConfiguredFeatures.CHALK),
                  UPPER_PLACEMENT);
         register(context, CHALK_LOWER, configuredFeatures.getOrThrow(ModConfiguredFeatures.CHALK),
+                 LOWER_PLACEMENT);
+
+        register(context, LIMESTONE_UPPER, configuredFeatures.getOrThrow(ModConfiguredFeatures.LIMESTONE),
+                 UPPER_PLACEMENT);
+        register(context, LIMESTONE_LOWER, configuredFeatures.getOrThrow(ModConfiguredFeatures.LIMESTONE),
                  LOWER_PLACEMENT);
     }
 

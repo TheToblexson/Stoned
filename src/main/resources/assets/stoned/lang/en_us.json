@@ -5,9 +5,17 @@
   "block.stoned.chalk_stairs": "Chalk Stairs",
   "block.stoned.chalk_slab": "Chalk Slab",
   "block.stoned.chalk_wall": "Chalk Wall",
-
   "block.stoned.chalk_bricks": "Chalk Bricks",
   "block.stoned.chalk_bricks_stairs": "Chalk Bricks Stairs",
   "block.stoned.chalk_bricks_slab": "Chalk Bricks Slab",
-  "block.stoned.chalk_bricks_wall": "Chalk Bricks Wall"
+  "block.stoned.chalk_bricks_wall": "Chalk Bricks Wall",
+  
+  "block.stoned.limestone": "Limestone",
+  "block.stoned.limestone_stairs": "Limestone Stairs",
+  "block.stoned.limestone_slab": "Limestone Slab",
+  "block.stoned.limestone_wall": "Limestone Wall",
+  "block.stoned.limestone_bricks": "Limestone Bricks",
+  "block.stoned.limestone_bricks_stairs": "Limestone Bricks Stairs",
+  "block.stoned.limestone_bricks_slab": "Limestone Bricks Slab",
+  "block.stoned.limestone_bricks_wall": "Limestone Bricks Wall"
 }
