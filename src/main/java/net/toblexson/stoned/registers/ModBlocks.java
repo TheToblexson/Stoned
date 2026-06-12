@@ -19,13 +19,17 @@ public class ModBlocks
     public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Stoned.MODID);
 
     private static final BlockBehaviour.Properties PROPERTIES_CHALK = BlockBehaviour.Properties.of()
-            .mapColor(MapColor.TERRACOTTA_WHITE)
+            .mapColor(MapColor.QUARTZ)
             .instrument(NoteBlockInstrument.BASEDRUM)
             .requiresCorrectToolForDrops()
             .strength(0.5f);
+    private static final BlockBehaviour.Properties PROPERTIES_LIMESTONE = BlockBehaviour.Properties.of()
+            .mapColor(MapColor.TERRACOTTA_WHITE)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .requiresCorrectToolForDrops()
+            .strength(1.0f);
 
-
-
+    //Chalk
     public static final DeferredBlock<Block> CHALK = registerBlock("chalk", () ->
             new Block(PROPERTIES_CHALK));
     public static final DeferredBlock<StairBlock> CHALK_STAIRS = registerBlock("chalk_stairs", () ->
@@ -42,6 +46,25 @@ public class ModBlocks
     public static final DeferredBlock<SlabBlock> CHALK_BRICKS_SLAB = registerBlock("chalk_bricks_slab", () ->
             new SlabBlock(PROPERTIES_CHALK));
     public static final DeferredBlock<WallBlock> CHALK_BRICKS_WALL = registerBlock("chalk_bricks_wall", () ->
+            new WallBlock(PROPERTIES_CHALK));
+
+    //Limestone
+    public static final DeferredBlock<Block> LIMESTONE = registerBlock("limestone", () ->
+            new Block(PROPERTIES_LIMESTONE));
+    public static final DeferredBlock<StairBlock> LIMESTONE_STAIRS = registerBlock("limestone_stairs", () ->
+            new StairBlock(ModBlocks.LIMESTONE.get().defaultBlockState(), PROPERTIES_LIMESTONE));
+    public static final DeferredBlock<SlabBlock> LIMESTONE_SLAB = registerBlock("limestone_slab", () ->
+            new SlabBlock(PROPERTIES_LIMESTONE));
+    public static final DeferredBlock<WallBlock> LIMESTONE_WALL = registerBlock("limestone_wall", () ->
+            new WallBlock(PROPERTIES_LIMESTONE));
+
+    public static final DeferredBlock<Block> LIMESTONE_BRICKS = registerBlock("limestone_bricks", () ->
+            new Block(PROPERTIES_LIMESTONE));
+    public static final DeferredBlock<StairBlock> LIMESTONE_BRICKS_STAIRS = registerBlock("limestone_bricks_stairs", () ->
+            new StairBlock(ModBlocks.LIMESTONE.get().defaultBlockState(), PROPERTIES_LIMESTONE));
+    public static final DeferredBlock<SlabBlock> LIMESTONE_BRICKS_SLAB = registerBlock("limestone_bricks_slab", () ->
+            new SlabBlock(PROPERTIES_CHALK));
+    public static final DeferredBlock<WallBlock> LIMESTONE_BRICKS_WALL = registerBlock("limestone_bricks_wall", () ->
             new WallBlock(PROPERTIES_CHALK));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block)

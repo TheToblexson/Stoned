@@ -15,6 +15,7 @@ import net.toblexson.stoned.Stoned;
 public class ModBiomeModifiers
 {
     public static final ResourceKey<BiomeModifier> CHALK = registerKey("chalk");
+    public static final ResourceKey<BiomeModifier> LIMESTONE = registerKey("limestone");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context)
     {
@@ -24,6 +25,11 @@ public class ModBiomeModifiers
         context.register(CHALK, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.CHALK_LOWER), placedFeatures.getOrThrow(ModPlacedFeatures.CHALK_UPPER)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(LIMESTONE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.LIMESTONE_LOWER), placedFeatures.getOrThrow(ModPlacedFeatures.LIMESTONE_UPPER)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
     }
 

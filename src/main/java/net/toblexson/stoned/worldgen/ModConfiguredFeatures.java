@@ -17,6 +17,7 @@ import net.toblexson.stoned.registers.ModBlocks;
 public class ModConfiguredFeatures
 {
     public static final ResourceKey<ConfiguredFeature<?,?>> CHALK = registerKey("chalk");
+    public static final ResourceKey<ConfiguredFeature<?,?>> LIMESTONE = registerKey("limestone");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?,?>> context)
     {
@@ -24,6 +25,9 @@ public class ModConfiguredFeatures
 
         register(context, CHALK, Feature.ORE, new OreConfiguration(
                 stoneReplaceables, ModBlocks.CHALK.get().defaultBlockState(), 64));
+
+        register(context, LIMESTONE, Feature.ORE, new OreConfiguration(
+                stoneReplaceables, ModBlocks.LIMESTONE.get().defaultBlockState(), 64));
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name)
