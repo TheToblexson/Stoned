@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.toblexson.registers.ModBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -22,10 +23,22 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider
     protected void generate()
     {
         dropSelf(ModBlocks.CHALK);
+        dropSelf(ModBlocks.CHALK_STAIRS);
+        dropSlab(ModBlocks.CHALK_SLAB);
+        dropSelf(ModBlocks.CHALK_WALL);
+
         dropSelf(ModBlocks.CHALK_BRICKS);
+        dropSelf(ModBlocks.CHALK_BRICKS_STAIRS);
+        dropSlab(ModBlocks.CHALK_BRICKS_SLAB);
+        dropSelf(ModBlocks.CHALK_BRICKS_WALL);
     }
 
-    public void dropSelf(DeferredBlock<Block> deferredBlock)
+    public void dropSlab(DeferredBlock<SlabBlock> deferredBlock)
+    {
+        add(deferredBlock.get(), block -> createSlabItemTable(deferredBlock.get()));
+    }
+
+    public void dropSelf(DeferredBlock<?> deferredBlock)
     {
         dropSelf(deferredBlock.get());
     }

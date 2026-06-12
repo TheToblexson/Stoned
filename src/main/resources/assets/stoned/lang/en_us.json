@@ -2,5 +2,12 @@
   "creativetab.stoned.stoned_tab": "Stoned",
 
   "block.stoned.chalk": "Chalk",
-  "block.stoned.chalk_bricks": "Chalk Bricks"
+  "block.stoned.chalk_stairs": "Chalk Stairs",
+  "block.stoned.chalk_slab": "Chalk Slab",
+  "block.stoned.chalk_wall": "Chalk Wall",
+
+  "block.stoned.chalk_bricks": "Chalk Bricks",
+  "block.stoned.chalk_bricks_stairs": "Chalk Bricks Stairs",
+  "block.stoned.chalk_bricks_slab": "Chalk Bricks Slab",
+  "block.stoned.chalk_bricks_wall": "Chalk Bricks Wall"
 }

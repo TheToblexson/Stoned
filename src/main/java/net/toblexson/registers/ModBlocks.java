@@ -1,6 +1,9 @@
 package net.toblexson.registers;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -22,12 +25,24 @@ public class ModBlocks
             .strength(0.5f);
 
 
+
     public static final DeferredBlock<Block> CHALK = registerBlock("chalk", () ->
             new Block(PROPERTIES_CHALK));
-
+    public static final DeferredBlock<StairBlock> CHALK_STAIRS = registerBlock("chalk_stairs", () ->
+            new StairBlock(ModBlocks.CHALK.get().defaultBlockState(), PROPERTIES_CHALK));
+    public static final DeferredBlock<SlabBlock> CHALK_SLAB = registerBlock("chalk_slab", () ->
+            new SlabBlock(PROPERTIES_CHALK));
+    public static final DeferredBlock<WallBlock> CHALK_WALL = registerBlock("chalk_wall", () ->
+            new WallBlock(PROPERTIES_CHALK));
 
     public static final DeferredBlock<Block> CHALK_BRICKS = registerBlock("chalk_bricks", () ->
             new Block(PROPERTIES_CHALK));
+    public static final DeferredBlock<StairBlock> CHALK_BRICKS_STAIRS = registerBlock("chalk_bricks_stairs", () ->
+            new StairBlock(ModBlocks.CHALK.get().defaultBlockState(), PROPERTIES_CHALK));
+    public static final DeferredBlock<SlabBlock> CHALK_BRICKS_SLAB = registerBlock("chalk_bricks_slab", () ->
+            new SlabBlock(PROPERTIES_CHALK));
+    public static final DeferredBlock<WallBlock> CHALK_BRICKS_WALL = registerBlock("chalk_bricks_wall", () ->
+            new WallBlock(PROPERTIES_CHALK));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block)
     {

@@ -27,13 +27,29 @@ public class ModBlockTagProvider extends BlockTagsProvider
         //mining
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.CHALK.get())
-                .add(ModBlocks.CHALK_BRICKS.get());
+                .add(ModBlocks.CHALK_STAIRS.get())
+                .add(ModBlocks.CHALK_SLAB.get())
+                .add(ModBlocks.CHALK_WALL.get())
+
+                .add(ModBlocks.CHALK_BRICKS.get())
+                .add(ModBlocks.CHALK_BRICKS_STAIRS.get())
+                .add(ModBlocks.CHALK_BRICKS_SLAB.get())
+                .add(ModBlocks.CHALK_BRICKS_WALL.get());
 
         //Vanilla/Forge
         tag(Tags.Blocks.STONES)
                 .add(ModBlocks.CHALK.get());
         tag(BlockTags.STONE_BRICKS)
                 .add(ModBlocks.CHALK_BRICKS.get());
+        tag(BlockTags.STAIRS)
+                .add(ModBlocks.CHALK_STAIRS.get())
+                .add(ModBlocks.CHALK_BRICKS_STAIRS.get());
+        tag(BlockTags.SLABS)
+                .add(ModBlocks.CHALK_BRICKS_SLAB.get())
+                .add(ModBlocks.CHALK_SLAB.get());
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.CHALK_BRICKS_WALL.get())
+                .add(ModBlocks.CHALK_WALL.get());
 
         //Mod
         tag(ModTags.Blocks.CHALK_BLOCK)
