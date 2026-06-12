@@ -4,15 +4,26 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.toblexson.stoned.Stoned;
+import net.toblexson.stoned.registers.ModBlocks;
 
 public class ModConfiguredFeatures
 {
+    public static final ResourceKey<ConfiguredFeature<?,?>> CHALK = registerKey("chalk");
+
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?,?>> context)
     {
+        RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
+
+        register(context, CHALK, Feature.ORE, new OreConfiguration(
+                stoneReplaceables, ModBlocks.CHALK.get().defaultBlockState(), 64));
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name)

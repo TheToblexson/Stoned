@@ -39,6 +39,10 @@ public class ModBlockTagProvider extends BlockTagsProvider
         //Vanilla/Forge
         tag(Tags.Blocks.STONES)
                 .add(ModBlocks.CHALK.get());
+        tag(BlockTags.BASE_STONE_OVERWORLD)
+                .add(ModBlocks.CHALK.get());
+        tag(BlockTags.STONE_ORE_REPLACEABLES)
+                .add(ModBlocks.CHALK.get());
         tag(BlockTags.STONE_BRICKS)
                 .add(ModBlocks.CHALK_BRICKS.get());
         tag(BlockTags.STAIRS)
