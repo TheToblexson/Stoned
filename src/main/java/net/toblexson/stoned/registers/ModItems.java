@@ -1,4 +1,4 @@
-package net.toblexson.registers;
+package net.toblexson.stoned.registers;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;

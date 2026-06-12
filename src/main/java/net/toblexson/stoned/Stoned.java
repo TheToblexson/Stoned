@@ -12,9 +12,9 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.toblexson.registers.ModBlocks;
-import net.toblexson.registers.ModCreativeModeTabs;
-import net.toblexson.registers.ModItems;
+import net.toblexson.stoned.registers.ModBlocks;
+import net.toblexson.stoned.registers.ModCreativeModeTabs;
+import net.toblexson.stoned.registers.ModItems;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Stoned.MODID)

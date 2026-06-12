@@ -1,4 +1,4 @@
-package net.toblexson.datagen;
+package net.toblexson.stoned.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

@@ -1,4 +1,4 @@
-package net.toblexson.registers;
+package net.toblexson.stoned.registers;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;

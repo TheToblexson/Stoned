@@ -1,4 +1,4 @@
-package net.toblexson.registers;
+package net.toblexson.stoned.registers;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package net.toblexson.datagen;
+package net.toblexson.stoned.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -35,6 +35,8 @@ public class DataGenerators
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(output, lookup, fileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new ModItemTagProvider(output, lookup, blockTagsProvider.contentsGetter(), fileHelper));
+
+        generator.addProvider(event.includeServer(), new ModDatapackProvider(output, lookup));
 
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, fileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, fileHelper));

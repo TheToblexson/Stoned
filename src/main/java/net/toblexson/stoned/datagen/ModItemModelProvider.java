@@ -1,4 +1,4 @@
-package net.toblexson.datagen;
+package net.toblexson.stoned.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;

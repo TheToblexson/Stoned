@@ -1,4 +1,4 @@
-package net.toblexson.datagen;
+package net.toblexson.stoned.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -6,8 +6,8 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.toblexson.registers.ModBlocks;
-import net.toblexson.registers.ModTags;
+import net.toblexson.stoned.registers.ModBlocks;
+import net.toblexson.stoned.registers.ModTags;
 import net.toblexson.stoned.Stoned;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

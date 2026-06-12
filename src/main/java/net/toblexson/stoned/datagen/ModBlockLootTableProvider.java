@@ -1,4 +1,4 @@
-package net.toblexson.datagen;
+package net.toblexson.stoned.datagen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -7,7 +7,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.toblexson.registers.ModBlocks;
+import net.toblexson.stoned.registers.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;

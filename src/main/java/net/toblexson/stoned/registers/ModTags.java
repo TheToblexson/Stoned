@@ -1,4 +1,4 @@
-package net.toblexson.registers;
+package net.toblexson.stoned.registers;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
