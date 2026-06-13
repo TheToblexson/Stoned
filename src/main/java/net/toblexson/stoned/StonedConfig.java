@@ -7,8 +7,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Neo's config APIs
-@EventBusSubscriber(modid = Stoned.MODID)
-public class Config
+@EventBusSubscriber(modid = Stoned.MOD_ID)
+public class StonedConfig
 {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 

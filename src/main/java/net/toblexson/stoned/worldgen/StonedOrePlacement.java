@@ -4,7 +4,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
-public class ModOrePlacement
+public class StonedOrePlacement
 {
     public static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightRange)
     {
