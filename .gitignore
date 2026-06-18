@@ -1,7 +1,7 @@
 ### Gradle ###
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper
 !**/src/**/build/
 
 ### IntelliJ IDEA ###
@@ -41,4 +41,3 @@ repo/
 src/generated
 /gradle/gradle-daemon-jvm.properties
 /.gitattributes
-/gradlew
