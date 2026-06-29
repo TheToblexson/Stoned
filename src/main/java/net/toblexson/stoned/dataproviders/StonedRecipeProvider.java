@@ -31,6 +31,7 @@ public class StonedRecipeProvider extends RecipeProvider
     {
         familyRecipes(CHALK_FAMILY);
         familyRecipes(LIMESTONE_FAMILY);
+        familyRecipes(SLATE_FAMILY);
     }
 
     private void familyRecipes(StoneFamily family)

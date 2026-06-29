@@ -12,6 +12,7 @@ public class StonedTags
     {
         public static final TagKey<Block> CHALK = createTag("chalk");
         public static final TagKey<Block> LIMESTONE = createTag("limestone");
+        public static final TagKey<Block> SLATE = createTag("slate");
 
         private static TagKey<Block> createTag(String name)
         {

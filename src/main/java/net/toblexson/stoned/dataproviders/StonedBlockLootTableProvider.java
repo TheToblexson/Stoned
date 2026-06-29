@@ -7,9 +7,10 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.toblexson.stoned.registers.StonedBlocks;
 
 import java.util.Set;
+
+import static net.toblexson.stoned.registers.StonedBlocks.*;
 
 public class StonedBlockLootTableProvider extends BlockLootSubProvider
 {
@@ -21,11 +22,12 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
     @Override
     protected void generate()
     {
-        familyDrops(StonedBlocks.CHALK_FAMILY);
-        familyDrops(StonedBlocks.LIMESTONE_FAMILY);
+        familyDrops(CHALK_FAMILY);
+        familyDrops(LIMESTONE_FAMILY);
+        familyDrops(SLATE_FAMILY);
     }
 
-    private void familyDrops(StonedBlocks.StoneFamily family)
+    private void familyDrops(StoneFamily family)
     {
         dropSelf(family.block);
         dropSelf(family.stairs);
@@ -56,6 +58,6 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
     @Override
     protected Iterable<Block> getKnownBlocks()
     {
-        return StonedBlocks.REGISTER.getEntries().stream().map(Holder::value)::iterator;
+        return REGISTER.getEntries().stream().map(Holder::value)::iterator;
     }
 }

@@ -18,6 +18,7 @@ public class StonedConfiguredFeatures
 {
     public static final ResourceKey<ConfiguredFeature<?,?>> CHALK = registerKey("chalk");
     public static final ResourceKey<ConfiguredFeature<?,?>> LIMESTONE = registerKey("limestone");
+    public static final ResourceKey<ConfiguredFeature<?,?>> SLATE = registerKey("slate");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?,?>> context)
     {
@@ -25,9 +26,10 @@ public class StonedConfiguredFeatures
 
         register(context, CHALK, Feature.ORE, new OreConfiguration(
                 stoneReplaceables, StonedBlocks.CHALK_FAMILY.block.get().defaultBlockState(), 64));
-
         register(context, LIMESTONE, Feature.ORE, new OreConfiguration(
                 stoneReplaceables, StonedBlocks.LIMESTONE_FAMILY.block.get().defaultBlockState(), 64));
+        register(context, SLATE, Feature.ORE, new OreConfiguration(
+                stoneReplaceables, StonedBlocks.SLATE_FAMILY.block.get().defaultBlockState(), 64));
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name)

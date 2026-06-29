@@ -8,10 +8,13 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.toblexson.stoned.Stoned;
-import net.toblexson.stoned.registers.StonedBlocks;
-import net.toblexson.stoned.tags.StonedTags;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.toblexson.stoned.registers.StonedBlocks.*;
+import static net.toblexson.stoned.tags.StonedTags.Blocks.CHALK;
+import static net.toblexson.stoned.tags.StonedTags.Blocks.LIMESTONE;
+import static net.toblexson.stoned.tags.StonedTags.Blocks.SLATE;
 
 public class StonedBlockTagProvider extends BlockTagsProvider
 {
@@ -23,11 +26,12 @@ public class StonedBlockTagProvider extends BlockTagsProvider
     @Override
     protected void addTags(HolderLookup.Provider lookup)
     {
-        familyTags(StonedBlocks.CHALK_FAMILY, StonedTags.Blocks.CHALK);
-        familyTags(StonedBlocks.LIMESTONE_FAMILY, StonedTags.Blocks.LIMESTONE);
+        familyTags(CHALK_FAMILY, CHALK);
+        familyTags(LIMESTONE_FAMILY, LIMESTONE);
+        familyTags(SLATE_FAMILY, SLATE);
     }
 
-    private void familyTags(StonedBlocks.StoneFamily family, TagKey<Block> stonedTag)
+    private void familyTags(StoneFamily family, TagKey<Block> stonedTag)
     {
         /* MOD */
         tag(stonedTag).addAll(family.getBlocks());

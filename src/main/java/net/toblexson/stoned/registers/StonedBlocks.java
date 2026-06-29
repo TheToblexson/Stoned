@@ -25,6 +25,8 @@ public class StonedBlocks
             .mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(0.5f));
     public static StoneFamily LIMESTONE_FAMILY = new StoneFamily("limestone", Properties.of()
             .mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.0f));
+    public static StoneFamily SLATE_FAMILY = new StoneFamily("slate", Properties.of()
+            .mapColor(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.0f));
 
     private static DeferredBlock<WallBlock> wall(DeferredBlock<Block> sourceBlock, Properties properties) {
         String name = sourceBlock.getId().getPath() + "_wall";

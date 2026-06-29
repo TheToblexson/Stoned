@@ -29,6 +29,7 @@ public class StonedModelProvider extends ModelProvider
         /* BLOCKS */
         familyModels(blockModels, CHALK_FAMILY);
         familyModels(blockModels, LIMESTONE_FAMILY);
+        familyModels(blockModels, SLATE_FAMILY);
     }
 
     private void familyModels(BlockModelGenerators blockModels, StoneFamily family)
