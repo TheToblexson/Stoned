@@ -34,6 +34,7 @@ public class StonedModelProvider extends ModelProvider
     private void familyModels(BlockModelGenerators blockModels, StoneFamily family)
     {
         subFamily(blockModels, family.block, family.stairs, family.slab, family.wall);
+        subFamily(blockModels, family.polishedBlock, family.polishedStairs, family.polishedSlab, family.polishedWall);
         subFamily(blockModels, family.bricksBlock, family.bricksStairs, family.bricksSlab, family.bricksWall);
     }
 

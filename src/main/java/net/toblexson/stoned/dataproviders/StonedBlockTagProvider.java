@@ -3,6 +3,8 @@ package net.toblexson.stoned.dataproviders;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.toblexson.stoned.Stoned;
@@ -21,14 +23,14 @@ public class StonedBlockTagProvider extends BlockTagsProvider
     @Override
     protected void addTags(HolderLookup.Provider lookup)
     {
-        familyTags(StonedBlocks.CHALK_FAMILY);
-        familyTags(StonedBlocks.LIMESTONE_FAMILY);
+        familyTags(StonedBlocks.CHALK_FAMILY, StonedTags.Blocks.CHALK);
+        familyTags(StonedBlocks.LIMESTONE_FAMILY, StonedTags.Blocks.LIMESTONE);
     }
 
-    private void familyTags(StonedBlocks.StoneFamily family)
+    private void familyTags(StonedBlocks.StoneFamily family, TagKey<Block> stonedTag)
     {
         /* MOD */
-        tag(StonedTags.Blocks.CHALK).addAll(StonedBlocks.CHALK_FAMILY.getBlocks());
+        tag(stonedTag).addAll(family.getBlocks());
 
         /* MINING */
         tag(BlockTags.MINEABLE_WITH_PICKAXE).addAll(family.getAll());
