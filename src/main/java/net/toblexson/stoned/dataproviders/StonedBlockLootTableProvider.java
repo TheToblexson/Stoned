@@ -32,6 +32,11 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
         dropSlab(family.slab);
         dropSelf(family.wall);
 
+        dropSelf(family.polishedBlock);
+        dropSelf(family.polishedStairs);
+        dropSlab(family.polishedSlab);
+        dropSelf(family.polishedWall);
+
         dropSelf(family.bricksBlock);
         dropSelf(family.bricksStairs);
         dropSlab(family.bricksSlab);

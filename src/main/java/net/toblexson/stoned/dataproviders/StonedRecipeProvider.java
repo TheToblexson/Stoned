@@ -5,12 +5,15 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.toblexson.stoned.Stoned;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -36,43 +39,53 @@ public class StonedRecipeProvider extends RecipeProvider
         slab(family.slab, family.block);
         wall(family.wall, family.block);
 
-        bricks(family.bricksBlock, family.block);
+        smelting(family.polishedBlock, family.block);
+
+        bricks(family.bricksBlock, family.polishedBlock);
         stairs(family.bricksStairs, family.bricksBlock);
         slab(family.bricksSlab, family.bricksBlock);
         wall(family.bricksWall, family.bricksBlock);
     }
 
-    private void wall(DeferredBlock<WallBlock> wall, DeferredBlock<Block> ingredient)
+    private void smelting(DeferredBlock<Block> result, DeferredBlock<Block> input)
     {
-        wallBuilder(RecipeCategory.BUILDING_BLOCKS, wall.get(), Ingredient.of(ingredient))
-                .unlockedBy(getHasName(ingredient), has(ingredient))
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, CookingBookCategory.MISC, result, 1.0f, 200)
+                .group(getSimpleRecipeName(result))
+                .unlockedBy(getHasName(input), has(input))
+                .save(output, Stoned.MOD_ID + ":" + getItemName(result) + "_from_smelting_" + getItemName(input));
+    }
+
+    private void wall(DeferredBlock<WallBlock> wall, DeferredBlock<Block> input)
+    {
+        wallBuilder(RecipeCategory.BUILDING_BLOCKS, wall.get(), Ingredient.of(input))
+                .unlockedBy(getHasName(input), has(input))
                 .group(getSimpleRecipeName(wall))
                 .save(output);
     }
 
-    private void slab(DeferredBlock<SlabBlock> slab, DeferredBlock<Block> ingredient)
+    private void slab(DeferredBlock<SlabBlock> slab, DeferredBlock<Block> input)
     {
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab.get(), Ingredient.of(ingredient))
-                .unlockedBy(getHasName(ingredient), has(ingredient))
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab.get(), Ingredient.of(input))
+                .unlockedBy(getHasName(input), has(input))
                 .group(getSimpleRecipeName(slab))
                 .save(output);
     }
 
-    private void stairs(DeferredBlock<StairBlock> stairs, DeferredBlock<Block> ingredient)
+    private void stairs(DeferredBlock<StairBlock> stairs, DeferredBlock<Block> input)
     {
-        stairBuilder(stairs.get(), Ingredient.of(ingredient))
-                .unlockedBy(getHasName(ingredient), has(ingredient))
+        stairBuilder(stairs.get(), Ingredient.of(input))
+                .unlockedBy(getHasName(input), has(input))
                 .group(getSimpleRecipeName(stairs))
                 .save(output);
     }
 
-    private void bricks(DeferredBlock<?> bricks, DeferredBlock<?> ingredient)
+    private void bricks(DeferredBlock<?> bricks, DeferredBlock<?> input)
     {
         shaped(RecipeCategory.BUILDING_BLOCKS, bricks)
                 .pattern("##")
                 .pattern("##")
-                .define('#', ingredient)
-                .unlockedBy(getHasName(ingredient), this.has(ingredient))
+                .define('#', input)
+                .unlockedBy(getHasName(input), this.has(input))
                 .group(getSimpleRecipeName(bricks))
                 .save(output);
     }
