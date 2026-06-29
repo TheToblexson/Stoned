@@ -22,6 +22,18 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
     @Override
     protected void generate()
     {
+        /* EXPANDED VANILLA */
+        dropSelf(STONE_WALL);
+        dropSelf(CRACKED_STONE_BRICKS_STAIRS);
+        dropSlab(CRACKED_STONE_BRICKS_SLAB);
+        dropSelf(CRACKED_STONE_BRICKS_WALL);
+        dropSelf(CHISELED_STONE_BRICKS_STAIRS);
+        dropSlab(CHISELED_STONE_BRICKS_SLAB);
+        dropSelf(CHISELED_STONE_BRICKS_WALL);
+        dropSelf(SMOOTH_STONE_BRICKS_STAIRS);
+        dropSelf(SMOOTH_STONE_BRICKS_WALL);
+
+        /* ADDITIONAL */
         familyDrops(CHALK_FAMILY);
         familyDrops(LIMESTONE_FAMILY);
         familyDrops(SLATE_FAMILY);

@@ -4,10 +4,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.toblexson.stoned.Stoned;
 
@@ -27,6 +24,20 @@ public class StonedModelProvider extends ModelProvider
         //itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
 
         /* BLOCKS */
+        blockModels.familyWithExistingFullBlock(Blocks.STONE)
+                .wall(STONE_WALL.get());
+        blockModels.familyWithExistingFullBlock(Blocks.CRACKED_STONE_BRICKS)
+                .stairs(CRACKED_STONE_BRICKS_STAIRS.get())
+                .slab(CRACKED_STONE_BRICKS_SLAB.get())
+                .wall(CRACKED_STONE_BRICKS_WALL.get());
+        blockModels.familyWithExistingFullBlock(Blocks.CHISELED_STONE_BRICKS)
+                .stairs(CHISELED_STONE_BRICKS_STAIRS.get())
+                .slab(CHISELED_STONE_BRICKS_SLAB.get())
+                .wall(CHISELED_STONE_BRICKS_WALL.get());
+        blockModels.familyWithExistingFullBlock(Blocks.SMOOTH_STONE)
+                .stairs(SMOOTH_STONE_BRICKS_STAIRS.get())
+                .wall(SMOOTH_STONE_BRICKS_WALL.get());
+
         familyModels(blockModels, CHALK_FAMILY);
         familyModels(blockModels, LIMESTONE_FAMILY);
         familyModels(blockModels, SLATE_FAMILY);

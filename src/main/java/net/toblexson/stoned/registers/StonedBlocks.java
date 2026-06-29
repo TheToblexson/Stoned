@@ -1,19 +1,18 @@
 package net.toblexson.stoned.registers;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.toblexson.stoned.Stoned;
+import org.jetbrains.annotations.UnknownNullability;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
@@ -21,26 +20,46 @@ public class StonedBlocks
 {
     public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Stoned.MOD_ID);
 
-    public static StoneFamily CHALK_FAMILY = new StoneFamily("chalk", Properties.of()
+    /* EXPANDED VANILLA */
+    public static final DeferredBlock<WallBlock> STONE_WALL = wall("stone", Properties.ofFullCopy(Blocks.STONE));
+
+    public static final DeferredBlock<StairBlock> CRACKED_STONE_BRICKS_STAIRS =
+            stairs("cracked_stone_bricks", () -> Blocks.CRACKED_STONE_BRICKS, Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS));
+    public static final DeferredBlock<SlabBlock> CRACKED_STONE_BRICKS_SLAB =
+            slab("cracked_stone_bricks", Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS));
+    public static final DeferredBlock<WallBlock> CRACKED_STONE_BRICKS_WALL =
+            wall("cracked_stone_bricks", Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS));
+
+    public static final DeferredBlock<StairBlock> CHISELED_STONE_BRICKS_STAIRS =
+            stairs("chiseled_stone_bricks", () -> Blocks.CHISELED_STONE_BRICKS, Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS));
+    public static final DeferredBlock<SlabBlock> CHISELED_STONE_BRICKS_SLAB =
+            slab("chiseled_stone_bricks", Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS));
+    public static final DeferredBlock<WallBlock> CHISELED_STONE_BRICKS_WALL =
+            wall("chiseled_stone_bricks", Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS));
+
+    public static final DeferredBlock<StairBlock> SMOOTH_STONE_BRICKS_STAIRS =
+            stairs("smooth_stone", () -> Blocks.SMOOTH_STONE, Properties.ofFullCopy(Blocks.SMOOTH_STONE));
+    public static final DeferredBlock<WallBlock> SMOOTH_STONE_BRICKS_WALL =
+            wall("smooth_stone", Properties.ofFullCopy(Blocks.SMOOTH_STONE));
+
+    /* ADDITIONAL */
+    public static final StoneFamily CHALK_FAMILY = new StoneFamily("chalk", Properties.of()
             .mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(0.5f));
-    public static StoneFamily LIMESTONE_FAMILY = new StoneFamily("limestone", Properties.of()
+    public static final StoneFamily LIMESTONE_FAMILY = new StoneFamily("limestone", Properties.of()
             .mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.0f));
-    public static StoneFamily SLATE_FAMILY = new StoneFamily("slate", Properties.of()
+    public static final StoneFamily SLATE_FAMILY = new StoneFamily("slate", Properties.of()
             .mapColor(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.0f));
 
-    private static DeferredBlock<WallBlock> wall(DeferredBlock<Block> sourceBlock, Properties properties) {
-        String name = sourceBlock.getId().getPath() + "_wall";
-        return registerBlockWithItem(name, properties, WallBlock::new);
+    private static DeferredBlock<WallBlock> wall(String baseName, Properties properties) {
+        return registerBlockWithItem(baseName + "_wall", properties, WallBlock::new);
     }
 
-    private static DeferredBlock<SlabBlock> slab(DeferredBlock<Block> sourceBlock, Properties properties) {
-        String name = sourceBlock.getId().getPath() + "_slab";
-        return registerBlockWithItem(name, properties, SlabBlock::new);
+    private static DeferredBlock<SlabBlock> slab(String baseName, Properties properties) {
+        return registerBlockWithItem(baseName + "_slab", properties, SlabBlock::new);
     }
 
-    private static DeferredBlock<StairBlock> stairs(DeferredBlock<Block> sourceBlock, Properties properties) {
-        String name = sourceBlock.getId().getPath() + "_stairs";
-        return registerBlockWithItem(name, properties, p -> new StairBlock(sourceBlock.get().defaultBlockState(), p));
+    private static DeferredBlock<StairBlock> stairs(String baseName, Supplier<Block> sourceBlockSupplier, Properties properties) {
+        return registerBlockWithItem(baseName + "_stairs", properties, p -> new StairBlock(sourceBlockSupplier.get().defaultBlockState(), p));
     }
 
     private static DeferredBlock<Block> block(String name, Properties properties) {
@@ -79,20 +98,23 @@ public class StonedBlocks
         public final DeferredBlock<WallBlock> bricksWall;
 
         public StoneFamily(String baseName, Properties properties) {
-            block = block(baseName, properties);
-            stairs = stairs(block, properties);
-            slab = slab(block, properties);
-            wall = wall(block, properties);
+            var name = baseName;
+            block = block(name, properties);
+            stairs = stairs(name, block, properties);
+            slab = slab(name, properties);
+            wall = wall(name, properties);
 
-            polishedBlock = block("polished_" + baseName, properties);
-            polishedStairs = stairs(polishedBlock, properties);
-            polishedSlab = slab(polishedBlock, properties);
-            polishedWall = wall(polishedBlock, properties);
+            name = "polished_" + baseName;
+            polishedBlock = block(name, properties);
+            polishedStairs = stairs(name,polishedBlock, properties);
+            polishedSlab = slab(name, properties);
+            polishedWall = wall(name, properties);
 
-            bricksBlock = block(baseName + "_bricks", properties);
-            bricksStairs = stairs(bricksBlock, properties);
-            bricksSlab = slab(bricksBlock, properties);
-            bricksWall = wall(bricksBlock, properties);
+            name = baseName + "_bricks";
+            bricksBlock = block(name, properties);
+            bricksStairs = stairs(name, bricksBlock, properties);
+            bricksSlab = slab(name, properties);
+            bricksWall = wall(name, properties);
         }
 
         public Collection<Block> getAll() {
