@@ -4,8 +4,12 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.toblexson.stoned.Stoned;
-import net.toblexson.stoned.registers.StonedBlocks;
 
 import static net.toblexson.stoned.registers.StonedBlocks.*;
 
@@ -22,24 +26,22 @@ public class StonedModelProvider extends ModelProvider
         /* ITEMS */
         //itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
 
-        /* CHALK */
-        blockModels.family(CHALK.get())
-                .stairs(StonedBlocks.CHALK_STAIRS.get())
-                .slab(StonedBlocks.CHALK_SLAB.get())
-                .wall(StonedBlocks.CHALK_WALL.get());
-        blockModels.family(StonedBlocks.CHALK_BRICKS.get())
-                .stairs(StonedBlocks.CHALK_BRICKS_STAIRS.get())
-                .slab(StonedBlocks.CHALK_BRICKS_SLAB.get())
-                .wall(StonedBlocks.CHALK_BRICKS_WALL.get());
+        /* BLOCKS */
+        familyModels(blockModels, CHALK_FAMILY);
+        familyModels(blockModels, LIMESTONE_FAMILY);
+    }
 
-        /* LIMESTONE */
-        blockModels.family(LIMESTONE.get())
-                .stairs(StonedBlocks.LIMESTONE_STAIRS.get())
-                .slab(StonedBlocks.LIMESTONE_SLAB.get())
-                .wall(StonedBlocks.LIMESTONE_WALL.get());
-        blockModels.family(StonedBlocks.LIMESTONE_BRICKS.get())
-                .stairs(StonedBlocks.LIMESTONE_BRICKS_STAIRS.get())
-                .slab(StonedBlocks.LIMESTONE_BRICKS_SLAB.get())
-                .wall(StonedBlocks.LIMESTONE_BRICKS_WALL.get());
+    private void familyModels(BlockModelGenerators blockModels, StoneFamily family)
+    {
+        subFamily(blockModels, family.block, family.stairs, family.slab, family.wall);
+        subFamily(blockModels, family.bricksBlock, family.bricksStairs, family.bricksSlab, family.bricksWall);
+    }
+
+    private void subFamily(BlockModelGenerators blockModels, DeferredBlock<Block> block, DeferredBlock<StairBlock> stairs, DeferredBlock<SlabBlock> slab, DeferredBlock<WallBlock> wall)
+    {
+        blockModels.family(block.get())
+                .stairs(stairs.get())
+                .slab(slab.get())
+                .wall(wall.get());
     }
 }

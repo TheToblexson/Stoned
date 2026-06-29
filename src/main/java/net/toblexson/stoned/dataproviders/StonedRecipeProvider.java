@@ -11,9 +11,10 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.toblexson.stoned.registers.StonedBlocks;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.toblexson.stoned.registers.StonedBlocks.*;
 
 public class StonedRecipeProvider extends RecipeProvider
 {
@@ -25,25 +26,20 @@ public class StonedRecipeProvider extends RecipeProvider
     @Override
     protected void buildRecipes()
     {
-        //Chalk
-        stairs(StonedBlocks.CHALK_STAIRS, StonedBlocks.CHALK);
-        slab(StonedBlocks.CHALK_SLAB, StonedBlocks.CHALK);
-        wall(StonedBlocks.CHALK_WALL, StonedBlocks.CHALK);
+        familyRecipes(CHALK_FAMILY);
+        familyRecipes(LIMESTONE_FAMILY);
+    }
 
-        bricks(StonedBlocks.CHALK_BRICKS, StonedBlocks.CHALK);
-        stairs(StonedBlocks.CHALK_BRICKS_STAIRS, StonedBlocks.CHALK_BRICKS);
-        slab(StonedBlocks.CHALK_BRICKS_SLAB, StonedBlocks.CHALK_BRICKS);
-        wall(StonedBlocks.CHALK_BRICKS_WALL, StonedBlocks.CHALK_BRICKS);
-        
-        //Limestone
-        stairs(StonedBlocks.LIMESTONE_STAIRS, StonedBlocks.LIMESTONE);
-        slab(StonedBlocks.LIMESTONE_SLAB, StonedBlocks.LIMESTONE);
-        wall(StonedBlocks.LIMESTONE_WALL, StonedBlocks.LIMESTONE);
+    private void familyRecipes(StoneFamily family)
+    {
+        stairs(family.stairs, family.block);
+        slab(family.slab, family.block);
+        wall(family.wall, family.block);
 
-        bricks(StonedBlocks.LIMESTONE_BRICKS, StonedBlocks.LIMESTONE);
-        stairs(StonedBlocks.LIMESTONE_BRICKS_STAIRS, StonedBlocks.LIMESTONE_BRICKS);
-        slab(StonedBlocks.LIMESTONE_BRICKS_SLAB, StonedBlocks.LIMESTONE_BRICKS);
-        wall(StonedBlocks.LIMESTONE_BRICKS_WALL, StonedBlocks.LIMESTONE_BRICKS);
+        bricks(family.bricksBlock, family.block);
+        stairs(family.bricksStairs, family.bricksBlock);
+        slab(family.bricksSlab, family.bricksBlock);
+        wall(family.bricksWall, family.bricksBlock);
     }
 
     private void wall(DeferredBlock<WallBlock> wall, DeferredBlock<Block> ingredient)

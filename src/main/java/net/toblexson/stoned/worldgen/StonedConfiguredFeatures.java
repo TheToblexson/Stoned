@@ -24,10 +24,10 @@ public class StonedConfiguredFeatures
         RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 
         register(context, CHALK, Feature.ORE, new OreConfiguration(
-                stoneReplaceables, StonedBlocks.CHALK.get().defaultBlockState(), 64));
+                stoneReplaceables, StonedBlocks.CHALK_FAMILY.block.get().defaultBlockState(), 64));
 
         register(context, LIMESTONE, Feature.ORE, new OreConfiguration(
-                stoneReplaceables, StonedBlocks.LIMESTONE.get().defaultBlockState(), 64));
+                stoneReplaceables, StonedBlocks.LIMESTONE_FAMILY.block.get().defaultBlockState(), 64));
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name)

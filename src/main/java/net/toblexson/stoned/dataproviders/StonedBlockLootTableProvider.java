@@ -21,27 +21,21 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
     @Override
     protected void generate()
     {
-        //Chalk
-        dropSelf(StonedBlocks.CHALK);
-        dropSelf(StonedBlocks.CHALK_STAIRS);
-        dropSlab(StonedBlocks.CHALK_SLAB);
-        dropSelf(StonedBlocks.CHALK_WALL);
+        familyDrops(StonedBlocks.CHALK_FAMILY);
+        familyDrops(StonedBlocks.LIMESTONE_FAMILY);
+    }
 
-        dropSelf(StonedBlocks.CHALK_BRICKS);
-        dropSelf(StonedBlocks.CHALK_BRICKS_STAIRS);
-        dropSlab(StonedBlocks.CHALK_BRICKS_SLAB);
-        dropSelf(StonedBlocks.CHALK_BRICKS_WALL);
-        
-        //Limestone
-        dropSelf(StonedBlocks.LIMESTONE);
-        dropSelf(StonedBlocks.LIMESTONE_STAIRS);
-        dropSlab(StonedBlocks.LIMESTONE_SLAB);
-        dropSelf(StonedBlocks.LIMESTONE_WALL);
+    private void familyDrops(StonedBlocks.StoneFamily family)
+    {
+        dropSelf(family.block);
+        dropSelf(family.stairs);
+        dropSlab(family.slab);
+        dropSelf(family.wall);
 
-        dropSelf(StonedBlocks.LIMESTONE_BRICKS);
-        dropSelf(StonedBlocks.LIMESTONE_BRICKS_STAIRS);
-        dropSlab(StonedBlocks.LIMESTONE_BRICKS_SLAB);
-        dropSelf(StonedBlocks.LIMESTONE_BRICKS_WALL);
+        dropSelf(family.bricksBlock);
+        dropSelf(family.bricksStairs);
+        dropSlab(family.bricksSlab);
+        dropSelf(family.bricksWall);
     }
 
     public void dropSlab(DeferredBlock<SlabBlock> deferredBlock)

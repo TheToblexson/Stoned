@@ -10,7 +10,6 @@ import net.toblexson.stoned.Stoned;
 import net.toblexson.stoned.worldgen.StonedBiomeModifiers;
 import net.toblexson.stoned.worldgen.StonedConfiguredFeatures;
 import net.toblexson.stoned.worldgen.StonedPlacedFeatures;
-//import net.toblexson.stoned.Stoned;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
