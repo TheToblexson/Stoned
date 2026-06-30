@@ -23,6 +23,10 @@
   "block.stoned.chalk_bricks_stairs": "Chalk Bricks Stairs",
   "block.stoned.chalk_bricks_slab": "Chalk Bricks Slab",
   "block.stoned.chalk_bricks_wall": "Chalk Bricks Wall",
+  "block.stoned.chalk_tiles": "Chalk Tiles",
+  "block.stoned.chalk_tiles_stairs": "Chalk Tiles Stairs",
+  "block.stoned.chalk_tiles_slab": "Chalk Tiles Slab",
+  "block.stoned.chalk_tiles_wall": "Chalk Tiles Wall",
   
   "block.stoned.limestone": "Limestone",
   "block.stoned.limestone_stairs": "Limestone Stairs",
@@ -36,6 +40,10 @@
   "block.stoned.limestone_bricks_stairs": "Limestone Bricks Stairs",
   "block.stoned.limestone_bricks_slab": "Limestone Bricks Slab",
   "block.stoned.limestone_bricks_wall": "Limestone Bricks Wall",
+  "block.stoned.limestone_tiles": "Limestone Tiles",
+  "block.stoned.limestone_tiles_stairs": "Limestone Tiles Stairs",
+  "block.stoned.limestone_tiles_slab": "Limestone Tiles Slab",
+  "block.stoned.limestone_tiles_wall": "Limestone Tiles Wall",
 
   "block.stoned.slate": "Slate",
   "block.stoned.slate_stairs": "Slate Stairs",
@@ -48,5 +56,9 @@
   "block.stoned.slate_bricks": "Slate Bricks",
   "block.stoned.slate_bricks_stairs": "Slate Bricks Stairs",
   "block.stoned.slate_bricks_slab": "Slate Bricks Slab",
-  "block.stoned.slate_bricks_wall": "Slate Bricks Wall"
+  "block.stoned.slate_bricks_wall": "Slate Bricks Wall",
+  "block.stoned.slate_tiles": "Slate Tiles",
+  "block.stoned.slate_tiles_stairs": "Slate Tiles Stairs",
+  "block.stoned.slate_tiles_slab": "Slate Tiles Slab",
+  "block.stoned.slate_tiles_wall": "Slate Tiles Wall"
 }
