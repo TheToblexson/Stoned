@@ -55,6 +55,11 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
         dropSelf(family.bricksStairs);
         dropSlab(family.bricksSlab);
         dropSelf(family.bricksWall);
+
+        dropSelf(family.tilesBlock);
+        dropSelf(family.tilesStairs);
+        dropSlab(family.tilesSlab);
+        dropSelf(family.tilesWall);
     }
 
     public void dropSlab(DeferredBlock<SlabBlock> deferredBlock)

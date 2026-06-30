@@ -23,7 +23,7 @@ public class StonedBiomeModifiers
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context)
     {
-        registerStone(context, CHALK, CHALK_LOWER, CHALK_LOWER);
+        registerStone(context, CHALK, CHALK_LOWER, CHALK_UPPER);
         registerStone(context, LIMESTONE, LIMESTONE_LOWER, LIMESTONE_UPPER);
         registerStone(context, SLATE, SLATE_LOWER, SLATE_UPPER);
     }

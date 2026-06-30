@@ -96,6 +96,11 @@ public class StonedBlocks
         public final DeferredBlock<SlabBlock> bricksSlab;
         public final DeferredBlock<WallBlock> bricksWall;
 
+        public final DeferredBlock<Block> tilesBlock;
+        public final DeferredBlock<StairBlock> tilesStairs;
+        public final DeferredBlock<SlabBlock> tilesSlab;
+        public final DeferredBlock<WallBlock> tilesWall;
+
         public StoneFamily(String baseName, Properties properties) {
             var name = baseName;
             block = block(name, properties);
@@ -114,12 +119,19 @@ public class StonedBlocks
             bricksStairs = stairs(name, bricksBlock, properties);
             bricksSlab = slab(name, properties);
             bricksWall = wall(name, properties);
+
+            name = baseName + "_tiles";
+            tilesBlock = block(name, properties);
+            tilesStairs = stairs(name, tilesBlock, properties);
+            tilesSlab = slab(name, properties);
+            tilesWall = wall(name, properties);
         }
 
         public Collection<Block> getAll() {
             return List.of(block.get(), stairs.get(), slab.get(), wall.get(),
                            polishedBlock.get(), polishedStairs.get(), polishedSlab.get(), polishedWall.get(),
-                           bricksBlock.get(), bricksStairs.get(), bricksSlab.get(), bricksWall.get());
+                           bricksBlock.get(), bricksStairs.get(), bricksSlab.get(), bricksWall.get(),
+                           tilesBlock.get(), tilesStairs.get(), tilesSlab.get(), tilesWall.get());
         }
 
         public Collection<Block> getBlocks() {
@@ -131,19 +143,19 @@ public class StonedBlocks
         }
 
         public Collection<Block> getBricks() {
-            return List.of(bricksBlock.get());
+            return List.of(bricksBlock.get(), tilesBlock.get());
         }
 
         public Collection<Block> getStairs() {
-            return List.of(stairs.get(),polishedStairs.get(),bricksStairs.get());
+            return List.of(stairs.get(),polishedStairs.get(),bricksStairs.get(), tilesStairs.get());
         }
 
         public Collection<Block> getSlabs() {
-            return List.of(slab.get(),polishedSlab.get(),bricksSlab.get());
+            return List.of(slab.get(),polishedSlab.get(),bricksSlab.get(), tilesSlab.get());
         }
 
         public Collection<Block> getWalls() {
-            return List.of(wall.get(),polishedWall.get(), bricksWall.get());
+            return List.of(wall.get(),polishedWall.get(), bricksWall.get(), tilesWall.get());
         }
     }
 }
