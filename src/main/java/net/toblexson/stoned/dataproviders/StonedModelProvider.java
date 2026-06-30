@@ -35,8 +35,8 @@ public class StonedModelProvider extends ModelProvider
                 .slab(CHISELED_STONE_BRICKS_SLAB.get())
                 .wall(CHISELED_STONE_BRICKS_WALL.get());
         blockModels.familyWithExistingFullBlock(Blocks.SMOOTH_STONE)
-                .stairs(SMOOTH_STONE_BRICKS_STAIRS.get())
-                .wall(SMOOTH_STONE_BRICKS_WALL.get());
+                .stairs(SMOOTH_STONE_STAIRS.get())
+                .wall(SMOOTH_STONE_WALL.get());
 
         familyModels(blockModels, CHALK_FAMILY);
         familyModels(blockModels, LIMESTONE_FAMILY);

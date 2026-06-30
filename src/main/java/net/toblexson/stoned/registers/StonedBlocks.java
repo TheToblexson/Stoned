@@ -7,7 +7,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.toblexson.stoned.Stoned;
-import org.jetbrains.annotations.UnknownNullability;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,9 +36,9 @@ public class StonedBlocks
     public static final DeferredBlock<WallBlock> CHISELED_STONE_BRICKS_WALL =
             wall("chiseled_stone_bricks", Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS));
 
-    public static final DeferredBlock<StairBlock> SMOOTH_STONE_BRICKS_STAIRS =
+    public static final DeferredBlock<StairBlock> SMOOTH_STONE_STAIRS =
             stairs("smooth_stone", () -> Blocks.SMOOTH_STONE, Properties.ofFullCopy(Blocks.SMOOTH_STONE));
-    public static final DeferredBlock<WallBlock> SMOOTH_STONE_BRICKS_WALL =
+    public static final DeferredBlock<WallBlock> SMOOTH_STONE_WALL =
             wall("smooth_stone", Properties.ofFullCopy(Blocks.SMOOTH_STONE));
 
     /* ADDITIONAL */

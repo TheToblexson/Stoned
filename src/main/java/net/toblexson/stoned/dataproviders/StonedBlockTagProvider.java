@@ -35,13 +35,13 @@ public class StonedBlockTagProvider extends BlockTagsProvider
                 .add(CHISELED_STONE_BRICKS_STAIRS.get())
                 .add(CHISELED_STONE_BRICKS_SLAB.get())
                 .add(CHISELED_STONE_BRICKS_WALL.get())
-                .add(SMOOTH_STONE_BRICKS_STAIRS.get())
-                .add(SMOOTH_STONE_BRICKS_WALL.get());
+                .add(SMOOTH_STONE_STAIRS.get())
+                .add(SMOOTH_STONE_WALL.get());
 
         tag(BlockTags.STAIRS)
                 .add(CRACKED_STONE_BRICKS_STAIRS.get())
                 .add(CHISELED_STONE_BRICKS_STAIRS.get())
-                .add(SMOOTH_STONE_BRICKS_STAIRS.get());
+                .add(SMOOTH_STONE_STAIRS.get());
         tag(BlockTags.SLABS)
                 .add(CRACKED_STONE_BRICKS_SLAB.get())
                 .add(CHISELED_STONE_BRICKS_SLAB.get());
@@ -49,7 +49,7 @@ public class StonedBlockTagProvider extends BlockTagsProvider
                 .add(STONE_WALL.get())
                 .add(CRACKED_STONE_BRICKS_WALL.get())
                 .add(CHISELED_STONE_BRICKS_WALL.get())
-                .add(SMOOTH_STONE_BRICKS_WALL.get());
+                .add(SMOOTH_STONE_WALL.get());
 
         /* ADDITIONAL FAMILIES */
         familyTags(CHALK_FAMILY, CHALK);

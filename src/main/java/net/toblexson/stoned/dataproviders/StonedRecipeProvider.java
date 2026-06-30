@@ -8,10 +8,8 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.toblexson.stoned.Stoned;
 
@@ -29,6 +27,18 @@ public class StonedRecipeProvider extends RecipeProvider
     @Override
     protected void buildRecipes()
     {
+        /* EXPANDED VANILLA */
+        wall(STONE_WALL, Blocks.STONE);
+        stairs(CRACKED_STONE_BRICKS_STAIRS, Blocks.CRACKED_STONE_BRICKS);
+        slab(CRACKED_STONE_BRICKS_SLAB, Blocks.CRACKED_STONE_BRICKS);
+        wall(CRACKED_STONE_BRICKS_WALL, Blocks.CRACKED_STONE_BRICKS);
+        stairs(CHISELED_STONE_BRICKS_STAIRS, Blocks.CHISELED_STONE_BRICKS);
+        slab(CHISELED_STONE_BRICKS_SLAB, Blocks.CHISELED_STONE_BRICKS);
+        wall(CHISELED_STONE_BRICKS_WALL, Blocks.CHISELED_STONE_BRICKS);
+        stairs(SMOOTH_STONE_STAIRS, Blocks.SMOOTH_STONE);
+        wall(SMOOTH_STONE_WALL, Blocks.SMOOTH_STONE);
+
+        /* ADDITIONAL */
         familyRecipes(CHALK_FAMILY);
         familyRecipes(LIMESTONE_FAMILY);
         familyRecipes(SLATE_FAMILY);
@@ -36,16 +46,41 @@ public class StonedRecipeProvider extends RecipeProvider
 
     private void familyRecipes(StoneFamily family)
     {
+        /* BASIC */
         stairs(family.stairs, family.block);
         slab(family.slab, family.block);
         wall(family.wall, family.block);
-
         smelting(family.polishedBlock, family.block);
+        stonecutter(family.block,family.stairs, family.slab, family.wall);
 
+        /* POLISHED */
         bricks(family.bricksBlock, family.polishedBlock);
+        stairs(family.polishedStairs, family.polishedBlock);
+        slab(family.polishedSlab, family.polishedBlock);
+        wall(family.polishedWall, family.polishedBlock);
+        stonecutter(family.polishedBlock, family.bricksBlock, family.polishedStairs, family.polishedSlab, family.polishedWall);
+
+        /* BRICKS */
         stairs(family.bricksStairs, family.bricksBlock);
         slab(family.bricksSlab, family.bricksBlock);
         wall(family.bricksWall, family.bricksBlock);
+        stonecutter(family.bricksBlock, family.bricksStairs, family.bricksSlab, family.bricksWall);
+    }
+
+    private void stonecutter(ItemLike input, ItemLike... outputs)
+    {
+        for (ItemLike output : outputs)
+        {
+            if (output instanceof SlabBlock)
+                stonecutter(input, output, 2);
+            else
+                stonecutter(input, output, 1);
+        }
+    }
+
+    private void stonecutter(ItemLike input, ItemLike output, int count)
+    {
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, output, input, count);
     }
 
     private void smelting(DeferredBlock<Block> result, DeferredBlock<Block> input)
@@ -56,7 +91,7 @@ public class StonedRecipeProvider extends RecipeProvider
                 .save(output, Stoned.MOD_ID + ":" + getItemName(result) + "_from_smelting_" + getItemName(input));
     }
 
-    private void wall(DeferredBlock<WallBlock> wall, DeferredBlock<Block> input)
+    private void wall(DeferredBlock<WallBlock> wall, ItemLike input)
     {
         wallBuilder(RecipeCategory.BUILDING_BLOCKS, wall.get(), Ingredient.of(input))
                 .unlockedBy(getHasName(input), has(input))
@@ -64,7 +99,7 @@ public class StonedRecipeProvider extends RecipeProvider
                 .save(output);
     }
 
-    private void slab(DeferredBlock<SlabBlock> slab, DeferredBlock<Block> input)
+    private void slab(DeferredBlock<SlabBlock> slab, ItemLike input)
     {
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab.get(), Ingredient.of(input))
                 .unlockedBy(getHasName(input), has(input))
@@ -72,7 +107,7 @@ public class StonedRecipeProvider extends RecipeProvider
                 .save(output);
     }
 
-    private void stairs(DeferredBlock<StairBlock> stairs, DeferredBlock<Block> input)
+    private void stairs(DeferredBlock<StairBlock> stairs, ItemLike input)
     {
         stairBuilder(stairs.get(), Ingredient.of(input))
                 .unlockedBy(getHasName(input), has(input))
@@ -80,7 +115,7 @@ public class StonedRecipeProvider extends RecipeProvider
                 .save(output);
     }
 
-    private void bricks(DeferredBlock<?> bricks, DeferredBlock<?> input)
+    private void bricks(DeferredBlock<?> bricks, ItemLike input)
     {
         shaped(RecipeCategory.BUILDING_BLOCKS, bricks)
                 .pattern("##")

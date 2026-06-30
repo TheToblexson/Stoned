@@ -30,8 +30,8 @@ public class StonedBlockLootTableProvider extends BlockLootSubProvider
         dropSelf(CHISELED_STONE_BRICKS_STAIRS);
         dropSlab(CHISELED_STONE_BRICKS_SLAB);
         dropSelf(CHISELED_STONE_BRICKS_WALL);
-        dropSelf(SMOOTH_STONE_BRICKS_STAIRS);
-        dropSelf(SMOOTH_STONE_BRICKS_WALL);
+        dropSelf(SMOOTH_STONE_STAIRS);
+        dropSelf(SMOOTH_STONE_WALL);
 
         /* ADDITIONAL */
         familyDrops(CHALK_FAMILY);
