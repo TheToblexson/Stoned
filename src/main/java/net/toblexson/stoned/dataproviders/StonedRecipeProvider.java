@@ -61,10 +61,17 @@ public class StonedRecipeProvider extends RecipeProvider
         stonecutter(family.polishedBlock, family.bricksBlock, family.polishedStairs, family.polishedSlab, family.polishedWall);
 
         /* BRICKS */
+        bricks(family.tilesBlock, family.bricksBlock);
         stairs(family.bricksStairs, family.bricksBlock);
         slab(family.bricksSlab, family.bricksBlock);
         wall(family.bricksWall, family.bricksBlock);
         stonecutter(family.bricksBlock, family.bricksStairs, family.bricksSlab, family.bricksWall);
+
+        /* TILES */
+        stairs(family.tilesStairs, family.tilesBlock);
+        slab(family.tilesSlab, family.tilesBlock);
+        wall(family.tilesWall, family.tilesBlock);
+        stonecutter(family.tilesBlock, family.tilesStairs, family.tilesSlab, family.tilesWall);
     }
 
     private void stonecutter(ItemLike input, ItemLike... outputs)
